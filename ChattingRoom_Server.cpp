@@ -184,7 +184,7 @@ int main(int argc, char* argv[])
                 }
                 ret = send(connfd, users[connfd].write_buf, strlen(users[connfd].write_buf), 0);
                 users[connfd].write_buf = NULL;
-                fds[i].events |= ~POLLOUT;
+                fds[i].events &= ~POLLOUT;
                 fds[i].events |= POLLIN;
             }
 
